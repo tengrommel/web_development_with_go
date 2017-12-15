@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func sweep(numbers []int)  {
+func sweep(numbers []int, prevPasses int)  {
 	var N int = len(numbers)
 	var firstIndex int = 0
 	var secondIndex int = 1
 
-	for secondIndex < N {
+	for secondIndex < (N-prevPasses) {
 		var firstNumber int = numbers[firstIndex]
 		var secondNumber int = numbers[secondIndex]
 
@@ -25,7 +25,7 @@ func bubbleSort(numbers []int)  {
 	var N int = len(numbers)
 	var i int
 	for i=0;i<N;i++{
-		sweep(numbers)
+		sweep(numbers, i)
 	}
 }
 
